@@ -1,0 +1,4 @@
+# File contexts for Ubuntu additional directories
+
+# misc
+/misc(/.*)?                 u:object_r:misc_file:s0

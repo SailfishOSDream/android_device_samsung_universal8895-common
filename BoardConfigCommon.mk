@@ -68,6 +68,9 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 # Kernel config
 TARGET_KERNEL_SOURCE := kernel/samsung/universal8895
 
+# Vendor separation
+TARGET_COPY_OUT_VENDOR := system/vendor
+
 # Use these flags if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -80,9 +83,6 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE   :=  4508876800 #(4454400 sda17)
 BOARD_USERDATAIMAGE_PARTITION_SIZE :=  58556678144 #(57184256 sda24)
 BOARD_CACHEIMAGE_PARTITION_SIZE    :=  524288000 #(512000 sda18)
 BOARD_FLASH_BLOCK_SIZE := 4096
-
-# Vendor separation
-TARGET_COPY_OUT_VENDOR := system/vendor
 
 # Properties
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
@@ -133,3 +133,15 @@ BOARD_HAVE_SAMSUNG_WIFI          := true
 TARGET_LD_SHIM_LIBS += \
     /system/lib/libexynoscamera.so|/vendor/lib/libexynoscamera_shim.so \
     /system/lib64/libexynoscamera.so|/vendor/lib64/libexynoscamera_shim.so
+
+# System as root
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+
+# SELinux
+BOARD_SEPOLICY_DIRS := device/samsung/universal8895-common/sepolicy
+
+# Extra folders for Ubuntu Touch
+BOARD_ROOT_EXTRA_FOLDERS += \
+/efs \
+/misc \
+#/preload \
