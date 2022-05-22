@@ -294,3 +294,45 @@ PRODUCT_PACKAGES += \
 
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/universal8895-common/universal8895-common-vendor.mk)
+
+
+####################################################
+#  Ubuntu Touch
+####################################################
+
+# Aethercast
+PRODUCT_PROPERTY_OVERRIDES += \
+    ubuntu.widi.supported=1
+
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth.a2dp@1.0 \
+    android.hardware.bluetooth@1.0 \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service \
+    android.hardware.gnss@1.0 \
+    android.hardware.gnss@1.1 \
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.1-impl \
+    android.hardware.gnss@1.0-service \
+    android.frameworks.schedulerservice@1.0 \
+    libstagefright_ccodec \
+    libclang_rt.ubsan_standalone-aarch64-android \
+    libandroid \
+    audio.hidl_compat.default \
+#    libis_compat_layer \
+#    libcameraservice \
+    libnetutils 
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ubuntu/android.conf:system/halium/etc/ubuntu-touch-session.d/android.conf \
+    $(LOCAL_PATH)/ubuntu/environment:system/halium/etc/environment \
+    $(LOCAL_PATH)/ubuntu/70-dreamlte.rules:system/halium/lib/udev/rules.d/70-android.rules \
+    $(LOCAL_PATH)/ubuntu/rsyslog.conf:system/halium/etc/rsyslog.conf \
+    $(LOCAL_PATH)/ubuntu/config:system/halium/var/lib/lxc/android/config \
+    $(LOCAL_PATH)/ubuntu/config-dreamlte.xml:system/halium/usr/share/repowerd/device-configs/config-default.xml \
+#    $(LOCAL_PATH)/ubuntu/ofono.override:system/halium/etc/init/ofono.override \
+
+PRODUCT_COPY_FILES += \
+    system/core/debuggerd/seccomp_policy/crash_dump.arm.policy:system/etc/seccomp_policy/crash_dump.arm.policy \
+    system/core/debuggerd/seccomp_policy/crash_dump.arm64.policy:system/etc/seccomp_policy/crash_dump.arm64.policy
+    
