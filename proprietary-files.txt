@@ -4,7 +4,7 @@ etc/apns-conf.xml
 # Audio
 lib/hw/audio.playback_record.default.so
 lib/hw/audio.primary.universal8895.so
-lib/hw/audio.tms.default.so
+lib/hw/audio.a2dp.default.so
 lib/libSamsungPostProcessConvertor.so
 lib/lib_SamsungRec_06006.so
 lib/lib_SoundAlive_SRC384_ver320.so
@@ -16,6 +16,7 @@ lib/libsamsungDiamondVoice.so
 lib/libsecaudiocoreutils.so
 lib/libsecaudioinfo.so
 lib/libtinyalsa.so
+lib64/hw/audio.a2dp.default.so
 lib64/libsecaudioinfo.so
 lib64/libtinyalsa.so
 vendor/lib/hw/sound_trigger.primary.universal8895.so
